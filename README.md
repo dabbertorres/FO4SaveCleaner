@@ -9,3 +9,9 @@ Once it pops up, check if you want to make backups first, enter the number of sa
 It will let you know when it's finished (fairly quick).
 
 Yay faster Fallout 4.
+
+Notes:
+Backing up simply moves the unneeded saves to a "Backups" folder in "..My Documents/My Games/Fallout4". Gets the benefit of Fallout 4 not chugging on them, but does not free space.
+
+License:
+[See LICENSE.md](LICENSE.md)
