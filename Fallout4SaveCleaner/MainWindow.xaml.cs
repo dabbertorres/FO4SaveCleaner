@@ -29,11 +29,17 @@ namespace Fallout4SaveCleaner
 			// keep UI thread clear
 			ThreadPool.QueueUserWorkItem((o) =>
 			{
-				var toDelete = app.saveList.Where(save => save.type == Save.Type.Normal).   // ignore Auto and Quick saves
-											GroupBy(save => save.character).                // group by each character
+				var savesToKeep = SavesToKeep();
+
+				// don't let user enter 0 - keep at least 1 save
+				if(savesToKeep == 0)
+					savesToKeep = 1;
+
+				var toDelete = app.saveList.Where(save => save.type == Save.Type.Normal). // ignore Auto and Quick saves
+											GroupBy(save => save.character).              // group by each character
 											SelectMany(character => character.
-											OrderByDescending(save => save.playTime).       // sort by playtime (highest first)
-											Skip(SavesToKeep()));                           // and skip the user's chosen amount to preserve, taking the rest
+											OrderByDescending(save => save.playTime).     // sort by playtime (highest first)
+											Skip(savesToKeep));                           // and skip the user's chosen amount to preserve, taking the rest
 
 				// default (no backups worker function)
 				Action<string> work = (file) => File.Delete(Path.Combine(app.userFo4SaveDir, file));
