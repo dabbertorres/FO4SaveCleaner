@@ -1,7 +1,7 @@
 # FO4SaveCleaner
 I tend to save a lot in Fallout 4. Having lots of saves reeeaaaally starts to slow the game down when trying to save/load. This gets rid of old saves you no longer need/want.
 
-It should *just* work TM.
+It should *just* work<sup>TM</sup>.
 
 By that, download, put it wherever you desire. Run it. It may take a few seconds to start (depending on how many saves you have).
 
