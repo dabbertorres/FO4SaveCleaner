@@ -14,7 +14,7 @@ Notes:
 Backing up simply moves the unneeded saves to a "Backups" folder in "..My Documents/My Games/Fallout4". Gets the benefit of Fallout 4 not chugging on them, but does not free space.
 
 Requirements:  
-[.NET 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643)
+[.NET 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643) (Running the .application file in the .zip will auto download and install if needed)
 
 License:  
 [See LICENSE.md](LICENSE.md)
