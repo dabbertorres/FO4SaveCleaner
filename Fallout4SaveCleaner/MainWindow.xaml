@@ -1,0 +1,23 @@
+﻿<Window x:Class="Fallout4SaveCleaner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fallout4SaveCleaner"
+        xmlns:settings="clr-namespace:Fallout4SaveCleaner.Properties"
+        mc:Ignorable="d"
+        Title="Fallout 4 Save Cleaner" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <StackPanel Margin="4">
+<!--    Options are only for degenerate capitalist dogs. Big robots don't scare me!
+        <CheckBox x:Name="cleanSavesCheck" Content="Saves" IsChecked="{Binding Source={x:Static settings:Settings.Default}, Path=CleanNormalSaves}"/>
+        <CheckBox x:Name="cleanQuickSavesCheck" Content="Quick Saves" IsChecked="{Binding Source={x:Static settings:Settings.Default}, Path=CleanQuickSaves}"/>
+        <CheckBox x:Name="cleanAutoSavesCheck" Content="Auto Saves" IsChecked="{Binding Source={x:Static settings:Settings.Default}, Path=CleanAutoSaves}"/>
+        <Separator Height="12" />
+-->
+        <CheckBox x:Name="makeBackupsCheck" Content="Make Backups" IsChecked="{Binding Source={x:Static settings:Settings.Default}, Path=MakeBackups}"/>
+        <TextBox x:Name="savesToKeepInput" Text="{Binding Source={x:Static settings:Settings.Default}, Path=NumberToPreserve}" 
+                 Grid.Row="1" Grid.Column="1" Margin="0,4" ToolTip="Number of saves to keep per character."
+                 PreviewTextInput="ValidateSavesToKeepNumberInput" DataObject.Pasting="ValidateSavesToKeepNumberPaste"/>
+        <Button x:Name="cleanButton" Content="Clean" Click="CleanClicked" Grid.Row="2" Grid.Column="2" Margin="0,4"/>
+    </StackPanel>
+</Window>
