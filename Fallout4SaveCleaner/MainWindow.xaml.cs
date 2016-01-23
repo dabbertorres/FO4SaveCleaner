@@ -63,12 +63,19 @@ namespace Fallout4SaveCleaner
 		// ease of use function
 		private int SavesToKeep()
 		{
-			Func<int> get = () => int.Parse(savesToKeepInput.Text);
+			try
+			{
+				Func<int> get = () => int.Parse(savesToKeepInput.Text);
 
-			if(Dispatcher.CheckAccess())
-				return get();
-			else
-				return Dispatcher.Invoke(get);
+				if(Dispatcher.CheckAccess())
+					return get();
+				else
+					return Dispatcher.Invoke(get);
+			}
+			catch
+			{
+				return 0;
+			}
 		}
 
 		private bool MakeBackups()
@@ -92,7 +99,7 @@ namespace Fallout4SaveCleaner
 		// events from the TextBox to make sure we can only get positive numbers...
 		private void ValidateSavesToKeepNumberInput(object sender, TextCompositionEventArgs e)
 		{
-			e.Handled = IsValidText(e.Text);
+			e.Handled = !IsValidText(e.Text);
 		}
 
 		private void ValidateSavesToKeepNumberPaste(object sender, DataObjectPastingEventArgs e)
